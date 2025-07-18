@@ -1,7 +1,7 @@
 ---
 // Floating WhatsApp Button Component dengan 2 Admin
-const admin1Number = "085936645589"; // Admin 1
-const admin2Number = "089653750433"; // Admin 2
+const admin1Number = "6285936645589"; // Admin 1
+const admin2Number = "6289653750433"; // Admin 2
 
 const floatingWaMessage = `Halo Malang HolyFun! 👋
 
@@ -9,7 +9,28 @@ Saya ingin bertanya tentang paket wisata yang tersedia.
 
 Mohon informasinya, terima kasih! 🙏`;
 
-const promoMessage = "Promo Spesial Agustusan! 🎉";
+// Fungsi untuk mendapatkan promo sesuai bulan
+function getMonthlyPromo() {
+	const monthPromos: Record<number, string> = {
+		0: "Promo Tahun Baru! 🎊", // Januari
+		1: "Promo Valentine! 💕", // Februari  
+		2: "Promo Spring Break! 🌸", // Maret
+		3: "Promo Easter Holiday! 🐰", // April
+		4: "Promo Labor Day! 🌺", // Mei
+		5: "Promo Summer Fun! ☀️", // Juni
+		6: "Promo Liburan Sekolah! 🏖️", // Juli
+		7: "Promo Spesial Agustusan! 🎉", // Agustus
+		8: "Promo Back to School! 📚", // September
+		9: "Promo Halloween! 🎃", // Oktober
+		10: "Promo Thanksgiving! 🦃", // November
+		11: "Promo Natal & Tahun Baru! 🎄" // Desember
+	};
+	
+	const currentMonth = new Date().getMonth();
+	return monthPromos[currentMonth] || "Promo Spesial! 🎉";
+}
+
+const promoMessage = getMonthlyPromo();
 
 function createWhatsAppURL(number: string, message: string) {
 	const encodedMessage = encodeURIComponent(message);
@@ -19,7 +40,7 @@ function createWhatsAppURL(number: string, message: string) {
 
 <div class="floating-whatsapp">
 	<div class="wa-promo-banner">
-		<span class="wa-promo-text">{promoMessage}</span>
+		<span class="wa-promo-text" id="monthlyPromoText">{promoMessage}</span>
 	</div>
 	
 	<div class="wa-preview-chat">
@@ -29,7 +50,13 @@ function createWhatsAppURL(number: string, message: string) {
 		</div>
 		<div class="wa-preview-message">
 			<p>Halo! Ada yang bisa kami bantu? 😊</p>
+			<!-- <div class="wa-quick-actions">
+				<button class="wa-package-btn" id="openPackageSelector">
+					📋 Pilih Paket Wisata
+				</button>
+			</div> -->
 			<div class="wa-admin-options">
+				<!-- <p class="admin-text">Atau langsung chat admin:</p> -->
 				<a href={createWhatsAppURL(admin1Number, floatingWaMessage)} target="_blank" rel="noopener noreferrer" class="wa-admin-btn">
 					👤 Admin 1
 				</a>
@@ -179,6 +206,42 @@ function createWhatsAppURL(number: string, message: string) {
 		font-size: 14px;
 		color: #333;
 		line-height: 1.4;
+	}
+
+	.wa-quick-actions {
+		margin-bottom: 15px;
+	}
+
+	.wa-package-btn {
+		width: 100%;
+		background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+		color: white;
+		padding: 12px 15px;
+		border-radius: 20px;
+		border: none;
+		font-size: 13px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		touch-action: manipulation;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.wa-package-btn:hover {
+		background: linear-gradient(135deg, #2980b9 0%, #1f5582 100%);
+		transform: translateY(-1px);
+		box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+	}
+
+	.admin-text {
+		font-size: 12px;
+		color: #666;
+		margin: 0 0 8px 0;
+		text-align: center;
 	}
 
 	.wa-admin-options {
@@ -384,6 +447,11 @@ function createWhatsAppURL(number: string, message: string) {
 		.wa-float-btn {
 			width: 55px;
 			height: 55px;
+			/* Fix untuk mobile - pastikan button bisa diklik */
+			pointer-events: auto;
+			cursor: pointer;
+			touch-action: manipulation;
+			-webkit-tap-highlight-color: transparent;
 		}
 		
 		.wa-float-btn:hover {
@@ -402,6 +470,7 @@ function createWhatsAppURL(number: string, message: string) {
 			position: relative;
 			fill: white !important;
 			color: white !important;
+			pointer-events: none;
 		}
 		
 		.wa-float-btn:hover .wa-float-icon {
@@ -410,6 +479,7 @@ function createWhatsAppURL(number: string, message: string) {
 
 		.wa-float-btn svg {
 			fill: white !important;
+			pointer-events: none;
 		}
 
 		.wa-float-btn svg path {
@@ -422,14 +492,48 @@ function createWhatsAppURL(number: string, message: string) {
 			font-size: 11px;
 			top: -6px;
 			right: -6px;
+			pointer-events: none;
 		}
 
+		/* Tampilkan preview chat saat tap di mobile */
 		.wa-preview-chat {
-			display: none;
+			display: block;
+			width: 260px;
+			bottom: 70px;
+			right: 0;
+			opacity: 0;
+			transform: translateY(20px) scale(0.9);
+			transition: all 0.3s ease;
+			pointer-events: none;
+		}
+
+		.floating-whatsapp:hover .wa-preview-chat,
+		.floating-whatsapp:focus-within .wa-preview-chat,
+		.floating-whatsapp:active .wa-preview-chat {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+			pointer-events: all;
 		}
 
 		.wa-promo-banner {
-			display: none;
+			display: block;
+			bottom: 70px;
+			right: 60px;
+			font-size: 10px;
+			padding: 6px 12px;
+		}
+
+		/* Fix untuk admin buttons di mobile */
+		.wa-admin-btn {
+			padding: 12px 16px;
+			font-size: 14px;
+			border-radius: 25px;
+			min-height: 44px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			touch-action: manipulation;
+			-webkit-tap-highlight-color: transparent;
 		}
 	}
 
@@ -478,3 +582,37 @@ function createWhatsAppURL(number: string, message: string) {
 		}
 	}
 </style>
+
+<script>
+	// Client-side script untuk update promo secara dinamis
+	function updateMonthlyPromo() {
+		const monthPromos = [
+			"Promo Tahun Baru! 🎊", // Januari (0)
+			"Promo Valentine! 💕", // Februari (1)
+			"Promo Spring Break! 🌸", // Maret (2)
+			"Promo Easter Holiday! 🐰", // April (3)
+			"Promo Labor Day! 🌺", // Mei (4)
+			"Promo Summer Fun! ☀️", // Juni (5)
+			"Promo Liburan Sekolah! 🏖️", // Juli (6)
+			"Promo Spesial Agustusan! 🎉", // Agustus (7)
+			"Promo Back to School! 📚", // September (8)
+			"Promo Halloween! 🎃", // Oktober (9)
+			"Promo Thanksgiving! 🦃", // November (10)
+			"Promo Natal & Tahun Baru! 🎄" // Desember (11)
+		];
+		
+		const currentMonth = new Date().getMonth();
+		const promoText = monthPromos[currentMonth] || "Promo Spesial! 🎉";
+		
+		const promoElement = document.getElementById('monthlyPromoText');
+		if (promoElement) {
+			promoElement.textContent = promoText;
+		}
+	}
+
+	// Update promo saat halaman dimuat
+	document.addEventListener('DOMContentLoaded', updateMonthlyPromo);
+	
+	// Update promo setiap menit untuk mendeteksi perubahan bulan
+	setInterval(updateMonthlyPromo, 60000);
+</script>
