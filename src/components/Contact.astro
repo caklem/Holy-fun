@@ -1,0 +1,226 @@
+---
+// Contact Section Component
+---
+
+<section id="contact" class="contact">
+	<div class="container">
+		<div class="section-header">
+			<h2>Hubungi Kami</h2>
+			<p>Siap membantu merencanakan perjalanan impian Anda</p>
+		</div>
+		<div class="contact-content">
+			<div class="contact-info">
+				<div class="info-item">
+					<div class="info-icon">📍</div>
+					<div class="info-text">
+						<h4>Alamat</h4>
+						<p>Malang, Jawa Timur, Indonesia</p>
+					</div>
+				</div>
+				<div class="info-item">
+					<div class="info-icon">📞</div>
+					<div class="info-text">
+						<h4>WhatsApp</h4>
+						<p>+62 812-3456-7890</p>
+					</div>
+				</div>
+				<div class="info-item">
+					<div class="info-icon">✉️</div>
+					<div class="info-text">
+						<h4>Email</h4>
+						<p>info@malanghilyfun.com</p>
+					</div>
+				</div>
+				<div class="info-item">
+					<div class="info-icon">⏰</div>
+					<div class="info-text">
+						<h4>Jam Operasional</h4>
+						<p>Senin - Minggu: 08:00 - 20:00<br>Siap melayani kapan saja</p>
+					</div>
+				</div>
+			</div>
+			<div class="contact-form">
+				<form>
+					<div class="form-group">
+						<input type="text" placeholder="Nama Lengkap" required>
+					</div>
+					<div class="form-group">
+						<input type="email" placeholder="Email" required>
+					</div>
+					<div class="form-group">
+						<input type="tel" placeholder="No. Telepon" required>
+					</div>
+					<div class="form-group">
+						<select required>
+							<option value="">Pilih Paket Wisata</option>
+							<option value="bromo">Open Trip Malang - Bromo</option>
+							<option value="city-tour">City Tour Malang - Batu</option>
+							<option value="tumpak-sewu">Air Terjun Tumpak Sewu</option>
+							<option value="custom">Custom Package</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<textarea placeholder="Pesan Anda" rows="5" required></textarea>
+					</div>
+					<button type="submit" class="btn-submit">Kirim Pesan</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.contact {
+		padding: 100px 0;
+		background: white;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 60px;
+	}
+
+	.section-header h2 {
+		font-size: 2.5rem;
+		color: #2c3e50;
+		margin-bottom: 1rem;
+		font-weight: 700;
+	}
+
+	.section-header p {
+		font-size: 1.2rem;
+		color: #666;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.contact-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 60px;
+		align-items: start;
+	}
+
+	.info-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 20px;
+		margin-bottom: 30px;
+		padding: 20px;
+		background: #f8f9fa;
+		border-radius: 15px;
+		transition: transform 0.3s ease;
+	}
+
+	.info-item:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	}
+
+	.info-icon {
+		font-size: 1.5rem;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.info-text h4 {
+		color: #2c3e50;
+		margin-bottom: 5px;
+		font-weight: 600;
+	}
+
+	.info-text p {
+		color: #666;
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	.contact-form {
+		background: #f8f9fa;
+		padding: 40px;
+		border-radius: 20px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+	}
+
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		width: 100%;
+		padding: 15px;
+		border: 2px solid #e9ecef;
+		border-radius: 10px;
+		font-size: 1rem;
+		font-family: 'Poppins', sans-serif;
+		transition: border-color 0.3s ease;
+		background: white;
+	}
+
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: #667eea;
+		box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+	}
+
+	.form-group textarea {
+		resize: vertical;
+		min-height: 120px;
+	}
+
+	.btn-submit {
+		width: 100%;
+		padding: 15px;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		border: none;
+		border-radius: 10px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-family: 'Poppins', sans-serif;
+	}
+
+	.btn-submit:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+	}
+
+	@media (max-width: 768px) {
+		.contact-content {
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
+		
+		.section-header h2 {
+			font-size: 2rem;
+		}
+		
+		.contact-form {
+			padding: 30px 20px;
+		}
+		
+		.info-item {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+</style>

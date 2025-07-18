@@ -1,0 +1,401 @@
+---
+// Destinations Section Component
+const whatsappNumber = "6281234567890"; // Ganti dengan nomor WhatsApp yang sebenarnya
+
+const destinations = [
+	{
+		id: 1,
+		name: "Open Trip Malang - Bromo",
+		basePrice: "Rp 300.000",
+		image: "https://24travel.id/wp-content/uploads/2023/08/gunung-bromo-terletak-di-1.jpeg",
+		description: "Nikmati keindahan sunrise di Gunung Bromo dengan paket open trip dari Malang",
+		rating: 4.8,
+		duration: "2 Hari 1 Malam",
+		priceDetails: [
+			{ pax: "Min 6 orang", price: "Rp 300.000/pax" },
+			{ pax: "Min 4 orang", price: "Rp 450.000/pax" },
+			{ pax: "Min 2 orang", price: "Rp 800.000/pax" }
+		],
+		extraInfo: "All in jemputan Malang | Jemputan Surabaya +Rp 500.000/rombongan",
+		waMessage: `Halo Malang HolyFun! 👋
+
+Saya tertarik dengan paket *Open Trip Malang - Bromo* (2 Hari 1 Malam)
+
+📋 *Detail Paket:*
+• Min 6 orang: Rp 300.000/pax
+• Min 4 orang: Rp 450.000/pax  
+• Min 2 orang: Rp 800.000/pax
+
+🚐 All in jemputan Malang
+🚐 Jemputan Surabaya +Rp 500.000/rombongan
+
+Mohon informasi lebih lanjut mengenai:
+1. Ketersediaan tanggal
+2. Rundown acara
+3. Include & exclude
+4. Cara pembayaran
+
+Terima kasih! 🙏`
+	},
+	{
+		id: 2,
+		name: "City Tour Malang - Batu",
+		basePrice: "Rp 600.000",
+		image: "https://i0.wp.com/wisata-batumalang.com/wp-content/uploads/2022/05/batu-malam-hari-villa-panderman-view.png?ssl=1",
+		description: "Jelajahi wisata kota Malang dan Batu dengan paket city tour 12 jam",
+		rating: 4.7,
+		duration: "12 Jam",
+		priceDetails: [
+			{ pax: "Maks 6 orang", price: "Rp 600.000/paket" }
+		],
+		extraInfo: "Jemputan Surabaya +Rp 500.000/rombongan",
+		waMessage: `Halo Malang HolyFun! 👋
+
+Saya tertarik dengan paket *City Tour Malang - Batu* (12 Jam)
+
+📋 *Detail Paket:*
+• Maks 6 orang: Rp 600.000/paket
+
+🚐 Jemputan Surabaya +Rp 500.000/rombongan
+
+Mohon informasi lebih lanjut mengenai:
+1. Ketersediaan tanggal
+2. Destinasi yang dikunjungi
+3. Include & exclude
+4. Cara pembayaran
+
+Terima kasih! 🙏`
+	},
+	{
+		id: 3,
+		name: "Air Terjun Tumpak Sewu",
+		basePrice: "Rp 340.000",
+		image: "https://pandooin-com.s3.ap-southeast-1.amazonaws.com/blog/article/images/5JBklc74H6RHSjC4paZaOJviX6yXUmLknDBDLcGn.webp",
+		description: "Kunjungi air terjun tertinggi di Jawa Timur dengan pemandangan spektakuler",
+		rating: 4.9,
+		duration: "1 Hari",
+		priceDetails: [
+			{ pax: "2 pax", price: "Rp 800.000/pax" },
+			{ pax: "3 pax", price: "Rp 625.000/pax" },
+			{ pax: "4 pax", price: "Rp 450.000/pax" },
+			{ pax: "5 pax", price: "Rp 400.000/pax" },
+			{ pax: "6 pax", price: "Rp 340.000/pax" }
+		],
+		extraInfo: "All in jemputan Malang | Jemputan Surabaya +Rp 500.000/rombongan",
+		waMessage: `Halo Malang HolyFun! 👋
+
+Saya tertarik dengan paket *Air Terjun Tumpak Sewu* (1 Hari)
+
+📋 *Detail Paket:*
+• 2 pax: Rp 800.000/pax
+• 3 pax: Rp 625.000/pax
+• 4 pax: Rp 450.000/pax
+• 5 pax: Rp 400.000/pax
+• 6 pax: Rp 340.000/pax
+
+🚐 All in jemputan Malang
+🚐 Jemputan Surabaya +Rp 500.000/rombongan
+
+Mohon informasi lebih lanjut mengenai:
+1. Ketersediaan tanggal
+2. Rundown acara
+3. Include & exclude
+4. Cara pembayaran
+
+Terima kasih! 🙏`
+	}
+];
+
+// Function to create WhatsApp URL
+function createWhatsAppURL(message: string) {
+	const encodedMessage = encodeURIComponent(message);
+	return `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+}
+---
+
+<section id="destinations" class="destinations">
+	<div class="container">
+		<div class="section-header">
+			<h2>Paket Wisata Malang</h2>
+			<p>Jelajahi keindahan Malang dan sekitarnya dengan paket terbaik</p>
+		</div>
+		<div class="destinations-grid">
+			{destinations.map(dest => (
+				<div class="destination-card">
+					<div class="card-image">
+						<img src={dest.image} alt={dest.name} />
+						<div class="card-overlay">
+							<span class="duration">{dest.duration}</span>
+						</div>
+					</div>
+					<div class="card-content">
+						<h3>{dest.name}</h3>
+						<p>{dest.description}</p>
+						
+						<div class="price-table">
+							<h4>Daftar Harga:</h4>
+							<ul class="price-list">
+								{dest.priceDetails.map(price => (
+									<li>
+										<span class="pax">{price.pax}</span>
+										<span class="price">{price.price}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+						
+						<div class="extra-info">
+							<p>{dest.extraInfo}</p>
+						</div>
+						
+						<div class="card-footer">
+							<div class="rating">
+								<span class="stars">★★★★★</span>
+								<span class="rating-value">{dest.rating}</span>
+							</div>
+							<div class="base-price">Mulai {dest.basePrice}</div>
+						</div>
+						<a href={createWhatsAppURL(dest.waMessage)} target="_blank" rel="noopener noreferrer" class="btn-book">
+							<svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+							</svg>
+							Pesan via WhatsApp
+						</a>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.destinations {
+		padding: 100px 0;
+		background: #f8f9fa;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 60px;
+	}
+
+	.section-header h2 {
+		font-size: 2.5rem;
+		color: #2c3e50;
+		margin-bottom: 1rem;
+		font-weight: 700;
+	}
+
+	.section-header p {
+		font-size: 1.2rem;
+		color: #666;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.destinations-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		gap: 30px;
+	}
+
+	.destination-card {
+		background: white;
+		border-radius: 20px;
+		overflow: hidden;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+
+	.destination-card:hover {
+		transform: translateY(-10px);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+	}
+
+	.card-image {
+		position: relative;
+		height: 250px;
+		overflow: hidden;
+	}
+
+	.card-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+
+	.destination-card:hover .card-image img {
+		transform: scale(1.1);
+	}
+
+	.card-overlay {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		background: rgba(0, 0, 0, 0.7);
+		color: white;
+		padding: 8px 15px;
+		border-radius: 20px;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	.card-content {
+		padding: 25px;
+	}
+
+	.card-content h3 {
+		font-size: 1.5rem;
+		color: #2c3e50;
+		margin-bottom: 10px;
+		font-weight: 600;
+	}
+
+	.card-content p {
+		color: #666;
+		margin-bottom: 20px;
+		line-height: 1.6;
+	}
+
+	.price-table {
+		background: #f8f9fa;
+		border-radius: 10px;
+		padding: 20px;
+		margin-bottom: 20px;
+	}
+
+	.price-table h4 {
+		color: #2c3e50;
+		font-size: 1.1rem;
+		margin-bottom: 15px;
+		font-weight: 600;
+	}
+
+	.price-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.price-list li {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px 0;
+		border-bottom: 1px solid #e9ecef;
+	}
+
+	.price-list li:last-child {
+		border-bottom: none;
+	}
+
+	.pax {
+		color: #495057;
+		font-weight: 500;
+	}
+
+	.price {
+		color: #667eea;
+		font-weight: 600;
+	}
+
+	.extra-info {
+		background: #fff3cd;
+		border: 1px solid #ffeaa7;
+		border-radius: 8px;
+		padding: 12px;
+		margin-bottom: 20px;
+	}
+
+	.extra-info p {
+		margin: 0;
+		color: #856404;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	.card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+
+	.rating {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.stars {
+		color: #ffd700;
+		font-size: 1rem;
+	}
+
+	.rating-value {
+		color: #666;
+		font-weight: 600;
+	}
+
+	.base-price {
+		color: #28a745;
+		font-size: 1.2rem;
+		font-weight: 700;
+	}
+
+	.btn-book {
+		width: 100%;
+		padding: 12px 0;
+		background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+		color: white;
+		border: none;
+		border-radius: 10px;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	.btn-book:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+		background: linear-gradient(135deg, #22c55e 0%, #16a085 100%);
+	}
+
+	.wa-icon {
+		width: 20px;
+		height: 20px;
+		margin-right: 8px;
+		animation: pulse 2s infinite;
+		filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+	}
+
+	@keyframes pulse {
+		0% { transform: scale(1); }
+		50% { transform: scale(1.1); }
+		100% { transform: scale(1); }
+	}
+
+	@media (max-width: 768px) {
+		.destinations-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.section-header h2 {
+			font-size: 2rem;
+		}
+	}
+</style>

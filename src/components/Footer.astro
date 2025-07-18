@@ -1,0 +1,161 @@
+---
+// Footer Component
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer-content">
+			<div class="footer-section">
+				<h3>Malang HolyFun</h3>
+				<p>Jelajahi keindahan Malang dan sekitarnya bersama kami. Kami berkomitmen memberikan pengalaman wisata terbaik dengan harga terjangkau.</p>
+				<div class="social-links">
+					<a href="#" aria-label="Facebook">📘</a>
+					<a href="#" aria-label="Instagram">📷</a>
+					<a href="#" aria-label="Twitter">🐦</a>
+					<a href="#" aria-label="YouTube">📺</a>
+				</div>
+			</div>
+			<div class="footer-section">
+				<h4>Destinasi Populer</h4>
+				<ul>
+					<li><a href="#">Bromo Sunrise</a></li>
+					<li><a href="#">Tumpak Sewu</a></li>
+					<li><a href="#">City Tour Malang</a></li>
+					<li><a href="#">Wisata Batu</a></li>
+					<li><a href="#">Coban Rondo</a></li>
+					<li><a href="#">Museum Angkut</a></li>
+				</ul>
+			</div>
+			<div class="footer-section">
+				<h4>Layanan</h4>
+				<ul>
+					<li><a href="#">Open Trip</a></li>
+					<li><a href="#">Private Trip</a></li>
+					<li><a href="#">City Tour</a></li>
+					<li><a href="#">Sewa Mobil</a></li>
+					<li><a href="#">Tour Guide</a></li>
+					<li><a href="#">Custom Package</a></li>
+				</ul>
+			</div>
+			<div class="footer-section">
+				<h4>Kontak Info</h4>
+				<div class="contact-info">
+					<p>📍 Malang, Jawa Timur</p>
+					<p>📞 +62 812-3456-7890</p>
+					<p>✉️ info@malanghilyfun.com</p>
+					<p>⏰ Senin - Minggu: 08:00 - 20:00</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2025 Malang HolyFun. All rights reserved.</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: #2c3e50;
+		color: white;
+		padding: 60px 0 0;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 40px;
+		margin-bottom: 40px;
+	}
+
+	.footer-section h3 {
+		color: #667eea;
+		font-size: 1.8rem;
+		margin-bottom: 20px;
+		font-weight: 700;
+	}
+
+	.footer-section h4 {
+		color: #ecf0f1;
+		font-size: 1.3rem;
+		margin-bottom: 20px;
+		font-weight: 600;
+	}
+
+	.footer-section p {
+		color: #bdc3c7;
+		line-height: 1.8;
+		margin-bottom: 20px;
+	}
+
+	.social-links {
+		display: flex;
+		gap: 15px;
+	}
+
+	.social-links a {
+		display: inline-block;
+		font-size: 1.5rem;
+		transition: transform 0.3s ease;
+	}
+
+	.social-links a:hover {
+		transform: scale(1.2);
+	}
+
+	.footer-section ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.footer-section ul li {
+		margin-bottom: 10px;
+	}
+
+	.footer-section ul li a {
+		color: #bdc3c7;
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.footer-section ul li a:hover {
+		color: #667eea;
+	}
+
+	.contact-info p {
+		margin-bottom: 10px;
+		font-size: 0.9rem;
+	}
+
+	.footer-bottom {
+		border-top: 1px solid #34495e;
+		padding: 20px 0;
+		text-align: center;
+	}
+
+	.footer-bottom p {
+		margin: 0;
+		color: #bdc3c7;
+	}
+
+	@media (max-width: 768px) {
+		.footer-content {
+			grid-template-columns: 1fr;
+			gap: 30px;
+		}
+		
+		.footer-section {
+			text-align: center;
+		}
+		
+		.social-links {
+			justify-content: center;
+		}
+	}
+</style>

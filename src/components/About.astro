@@ -1,0 +1,179 @@
+---
+// About Section Component
+const stats = [
+	{ number: "50+", label: "Destinasi Malang" },
+	{ number: "2K+", label: "Pelanggan Puas" },
+	{ number: "3+", label: "Tahun Pengalaman" },
+	{ number: "15+", label: "Tour Guide" }
+];
+---
+
+<section id="about" class="about">
+	<div class="container">
+		<div class="about-content">
+			<div class="about-text">
+				<h2>Tentang Malang HolyFun</h2>
+				<p class="lead">
+					Kami adalah travel agent lokal yang berpengalaman dalam memberikan layanan wisata 
+					terbaik di Malang dan sekitarnya sejak tahun 2021.
+				</p>
+				<p>
+					Dengan tim yang terdiri dari local guide berpengalaman, kami berkomitmen untuk 
+					memberikan pengalaman wisata yang tak terlupakan dengan harga yang terjangkau. 
+					Dari sunrise hunting di Bromo hingga menjelajahi keindahan Tumpak Sewu, 
+					kami siap membantu mewujudkan liburan impian Anda di Malang.
+				</p>
+				<div class="stats">
+					{stats.map(stat => (
+						<div class="stat-item">
+							<div class="stat-number">{stat.number}</div>
+							<div class="stat-label">{stat.label}</div>
+						</div>
+					))}
+				</div>
+			</div>
+			<div class="about-image">
+				<img src="https://i.pinimg.com/1200x/7b/79/32/7b79321450362a42f1a8517d17cb8d5d.jpg" alt="About Malang HolyFun" />
+				<div class="image-decoration"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about {
+		padding: 100px 0;
+		background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.about-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 60px;
+		align-items: center;
+	}
+
+	.about-text h2 {
+		font-size: 2.5rem;
+		color: #2c3e50;
+		margin-bottom: 20px;
+		font-weight: 700;
+	}
+
+	.lead {
+		font-size: 1.3rem;
+		color: #495057;
+		margin-bottom: 25px;
+		font-weight: 500;
+		line-height: 1.6;
+	}
+
+	.about-text p {
+		color: #666;
+		line-height: 1.8;
+		margin-bottom: 30px;
+		font-size: 1.1rem;
+	}
+
+	.stats {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 30px;
+		margin-top: 40px;
+	}
+
+	.stat-item {
+		text-align: center;
+		padding: 20px;
+		background: white;
+		border-radius: 15px;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+	}
+
+	.stat-item:hover {
+		transform: translateY(-5px);
+	}
+
+	.stat-number {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #667eea;
+		margin-bottom: 5px;
+	}
+
+	.stat-label {
+		color: #666;
+		font-size: 1rem;
+		font-weight: 500;
+	}
+
+	.about-image {
+		position: relative;
+	}
+
+	.about-image img {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		border-radius: 20px;
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+	}
+
+	.image-decoration {
+		position: absolute;
+		top: -20px;
+		left: -20px;
+		width: 100px;
+		height: 100px;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		border-radius: 50%;
+		z-index: -1;
+		opacity: 0.8;
+	}
+
+	.image-decoration::after {
+		content: '';
+		position: absolute;
+		bottom: -40px;
+		right: -40px;
+		width: 80px;
+		height: 80px;
+		background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+		border-radius: 50%;
+	}
+
+	@media (max-width: 768px) {
+		.about-content {
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
+		
+		.about-text h2 {
+			font-size: 2rem;
+		}
+		
+		.lead {
+			font-size: 1.2rem;
+		}
+		
+		.stats {
+			grid-template-columns: 1fr 1fr;
+			gap: 20px;
+		}
+		
+		.stat-number {
+			font-size: 2rem;
+		}
+		
+		.about-image img {
+			height: 300px;
+		}
+	}
+</style>
