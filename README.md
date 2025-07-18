@@ -1,52 +1,96 @@
-# Astro Starter Kit: Basics
+# 🌟 Malang HolyFun - Travel Website
 
-```sh
-npm create astro@latest -- --template basics
+Selamat datang di website resmi **Malang HolyFun** - travel agent terpercaya untuk wisata Malang dan sekitarnya!
+
+## 🚀 Live Demo
+🌐 **Website**: [https://caklem.github.io/Holy-fun/](https://caklem.github.io/Holy-fun/)
+
+## ✨ Fitur Utama
+
+### 🏠 Landing Page
+- Hero section dengan slider full-screen
+- Informasi paket wisata lengkap dengan harga
+- Galeri destinasi wisata Malang
+- Testimoni pelanggan
+- Form kontak dan informasi perusahaan
+
+### 📱 WhatsApp Integration
+- Floating WhatsApp button dengan fitur canggih
+- Preview chat dengan typing indicator
+- Pesan template untuk setiap destinasi
+- Notification badge dan promo banner
+- Responsive di semua device
+
+### 🎨 Design Features
+- Modern dan responsive design
+- Smooth animations dan hover effects
+- Gradient backgrounds yang eye-catching
+- Mobile-first approach
+- Fast loading dengan Astro
+
+## 🏞️ Destinasi Wisata
+
+### 🌄 Paket Open Trip Malang - Bromo
+- **2D1N**: Rp 350.000/pax
+- **3D2N**: Rp 650.000/pax
+
+### 🏔️ Paket Bromo Tengger Semeru
+- **2D1N**: Rp 400.000/pax
+- **3D2N**: Rp 750.000/pax
+
+### 💦 Paket Tumpak Sewu
+- **1D**: Rp 250.000/pax
+- **2D1N**: Rp 450.000/pax
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Astro](https://astro.build/) 5.12.0
+- **Language**: TypeScript
+- **Styling**: CSS3 dengan modern features
+- **Hosting**: GitHub Pages
+- **Deployment**: GitHub Actions
+- **Icons**: Custom SVG icons
+- **Fonts**: Google Fonts (Poppins)
+
+## 📱 Kontak
+
+- **WhatsApp**: [089653750433](https://wa.me/089653750433)
+- **Email**: malangholyfun@example.com
+- **Instagram**: @malangholyfun
+- **Facebook**: Malang HolyFun Travel
+
+## 🚀 Development
+
+### Prerequisites
+- Node.js 18+ 
+- npm atau yarn
+
+### Installation
+```bash
+# Clone repository
+git clone https://github.com/caklem/Holy-fun.git
+cd Holy-fun
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### Build for Production
+```bash
+# Build website
+npm run build
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+# Preview build
+npm run preview
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 📄 License
 
-## 🧞 Commands
+© 2025 Malang HolyFun. All rights reserved.
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**Dibuat dengan ❤️ untuk memberikan pengalaman wisata terbaik di Malang!**
