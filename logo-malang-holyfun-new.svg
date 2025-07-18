@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <!-- Map pin with car icon -->
+  <g transform="translate(200, 20)">
+    <!-- Pin shape -->
+    <path d="M 0 0 C -20 0 -36 16 -36 36 C -36 56 0 100 0 100 S 36 56 36 36 C 36 16 20 0 0 0 Z" fill="#00bcd4"/>
+    
+    <!-- White circle background for car -->
+    <circle cx="0" cy="36" r="22" fill="white"/>
+    
+    <!-- Car icon -->
+    <g transform="translate(0, 36)">
+      <!-- Car body -->
+      <rect x="-12" y="-6" width="24" height="8" rx="2" fill="#00bcd4"/>
+      <!-- Car windows -->
+      <rect x="-10" y="-10" width="8" height="4" rx="1" fill="#00bcd4"/>
+      <rect x="2" y="-10" width="8" height="4" rx="1" fill="#00bcd4"/>
+      <!-- Car wheels -->
+      <circle cx="-8" cy="4" r="2" fill="#00bcd4"/>
+      <circle cx="8" cy="4" r="2" fill="#00bcd4"/>
+    </g>
+  </g>
+  
+  <!-- Text: Malang -->
+  <text x="200" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#1976d2">Malang</text>
+  
+  <!-- Text: HolyFun -->
+  <text x="200" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#1976d2">HolyFun</text>
+  
+  <!-- Text: TRAVEL -->
+  <text x="200" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="normal" fill="#1976d2" letter-spacing="2px">T R A V E L</text>
+</svg>

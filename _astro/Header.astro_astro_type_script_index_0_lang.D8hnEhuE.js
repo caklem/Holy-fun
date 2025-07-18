@@ -1,0 +1,1 @@
+const n=document.getElementById("nav-toggle"),e=document.querySelector(".nav-menu");n?.addEventListener("click",()=>{e?.classList.toggle("active")});document.querySelectorAll(".nav-menu a").forEach(t=>{t.addEventListener("click",()=>{e?.classList.remove("active")})});
