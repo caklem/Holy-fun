@@ -3,10 +3,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://caklem.github.io',
-	base: '/Holy-fun/',
-	output: 'static',
-	build: {
-		assets: 'assets'
-	}
+	site: 'https://caklem.github.io/Holy-fun',
+	output: 'static'
 });
