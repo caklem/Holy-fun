@@ -25,21 +25,21 @@ const heroSlides = [
 		id: 1,
 		title: "Jelajahi Keindahan Malang Bersama Kami",
 		subtitle: "Temukan pengalaman tak terlupakan di Malang dengan paket wisata terbaik dan harga terjangkau",
-		image: "https://i.pinimg.com/1200x/43/b1/14/43b11405b3f645f45274ac6d0ded8492.jpg",
+		image: "https://kilikiliadventure.com/wp-content/uploads/2024/11/8aa929d9b2986a7c68fc365585a28ceb.webp",
 		alt: "Bromo Sunrise"
 	},
 	{
 		id: 2,
 		title: "Air Terjun Tumpak Sewu",
 		subtitle: "Nikmati keindahan air terjun tertinggi di Jawa Timur dengan pemandangan yang menakjubkan",
-		image: "https://i.pinimg.com/1200x/3a/40/9a/3a409ae8cd95ff91d25cc8fddfc00c09.jpg",
+		image: "https://ik.imagekit.io/tvlk/blog/2025/02/shutterstock_1717643809.jpg?tr=q-95,c-at_max,w-1920,h-1080,dpr-2",
 		alt: "Tumpak Sewu Waterfall"
 	},
 	{
 		id: 3,
 		title: "City Tour Malang - Batu",
 		subtitle: "Jelajahi wisata kota Malang dan Batu dengan berbagai destinasi menarik dalam satu paket",
-		image: "https://i.pinimg.com/1200x/6c/95/9a/6c959a05cb9dd9dfd335f90e5f29c719.jpg",
+		image: "https://assets.pikiran-rakyat.com/crop/0x0:0x0/1920x1080/photo/2024/10/21/25861356.jpg",
 		alt: "Malang City Tour"
 	}
 ];
@@ -129,6 +129,10 @@ const heroSlides = [
 		height: 100%;
 		object-fit: cover;
 		object-position: center;
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: crisp-edges;
+		filter: contrast(1.05) saturate(1.1) brightness(1.02);
+		transition: transform 0.3s ease;
 	}
 
 	.slide-overlay {
@@ -137,7 +141,7 @@ const heroSlides = [
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(135deg, rgba(102, 126, 234, 0.093) 0%, rgba(118, 75, 162, 0.8) 100%);
+		background: linear-gradient(135deg, rgba(17, 24, 39, 0.5) 0%, rgba(75, 85, 99, 0.7) 100%);
 		z-index: 2;
 	}
 
@@ -147,7 +151,7 @@ const heroSlides = [
 		text-align: center;
 		color: white;
 		width: 100%;
-		padding: 0 20px;
+		padding: 0 24px;
 	}
 
 	.container {
@@ -156,23 +160,25 @@ const heroSlides = [
 	}
 
 	.hero-title {
-		font-size: 3.5rem;
+		font-size: clamp(2.5rem, 5vw, 4rem);
 		font-weight: 700;
 		margin-bottom: 1.5rem;
-		line-height: 1.2;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+		line-height: 1.1;
+		text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 		animation: slideUp 1s ease-out 0.5s both;
+		letter-spacing: -0.02em;
 	}
 
 	.hero-subtitle {
-		font-size: 1.3rem;
+		font-size: clamp(1.1rem, 2.5vw, 1.4rem);
 		margin-bottom: 2.5rem;
-		opacity: 0.9;
-		font-weight: 300;
-		max-width: 800px;
+		opacity: 0.95;
+		font-weight: 400;
+		max-width: 700px;
 		margin-left: auto;
 		margin-right: auto;
 		animation: slideUp 1s ease-out 0.7s both;
+		line-height: 1.6;
 	}
 
 	.hero-buttons {
@@ -195,93 +201,107 @@ const heroSlides = [
 	}
 
 	.btn {
-		padding: 15px 30px;
-		border-radius: 50px;
+		padding: 16px 32px;
+		border-radius: 12px;
 		text-decoration: none;
 		font-weight: 600;
-		transition: all 0.3s ease;
+		font-size: 15px;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		text-align: center;
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		min-width: 180px;
+		border: 2px solid transparent;
+		letter-spacing: 0.3px;
+		box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
 	}
 
 	.btn-primary {
-		background: rgba(255, 255, 255, 0.2);
-		color: white;
-		border: 2px solid white;
+		background: rgba(255, 255, 255, 0.95);
+		color: #1f2937;
 		backdrop-filter: blur(10px);
 	}
 
 	.btn-primary:hover {
 		background: white;
-		color: #667eea;
+		color: #111827;
 		transform: translateY(-2px);
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 	}
 
 	.btn-secondary {
-		background: rgba(255, 255, 255, 0.1);
+		background: linear-gradient(135deg, #3b82f6, #2563eb);
 		color: white;
-		border: 2px solid rgba(255, 255, 255, 0.5);
+		border: 2px solid rgba(255, 255, 255, 0.2);
 	}
 
 	.btn-secondary:hover {
-		background: rgba(255, 255, 255, 0.2);
-		border-color: white;
+		background: linear-gradient(135deg, #2563eb, #1d4ed8);
 		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
 	}
 
 	.btn-outline {
-		background: transparent;
+		background: rgba(255, 255, 255, 0.1);
 		color: white;
-		border: 2px solid rgba(255, 255, 255, 0.5);
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		backdrop-filter: blur(10px);
 	}
 
 	.btn-outline:hover {
-		background: rgba(255, 255, 255, 0.1);
-		border-color: white;
+		background: rgba(255, 255, 255, 0.2);
+		border-color: rgba(255, 255, 255, 0.6);
 		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
 	}
 
 	.wa-icon {
-		width: 18px;
-		height: 18px;
+		width: 20px;
+		height: 20px;
 		margin-right: 8px;
 		animation: pulse 2s infinite;
-		filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+		filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));
+		transition: transform 0.3s ease;
+	}
+
+	.btn-outline:hover .wa-icon {
+		transform: scale(1.1) rotate(5deg);
 	}
 
 	@keyframes pulse {
 		0% { transform: scale(1); }
-		50% { transform: scale(1.1); }
+		50% { transform: scale(1.05); }
 		100% { transform: scale(1); }
 	}
 
 	/* Navigation Dots */
 	.hero-dots {
 		position: absolute;
-		bottom: 30px;
+		bottom: 40px;
 		left: 50%;
 		transform: translateX(-50%);
 		display: flex;
-		gap: 10px;
+		gap: 12px;
 		z-index: 4;
 	}
 
 	.dot {
-		width: 12px;
-		height: 12px;
+		width: 14px;
+		height: 14px;
 		border-radius: 50%;
-		background: rgba(255, 255, 255, 0.5);
-		border: none;
+		background: rgba(255, 255, 255, 0.4);
+		border: 2px solid rgba(255, 255, 255, 0.2);
 		cursor: pointer;
-		transition: all 0.3s ease;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.dot.active,
 	.dot:hover {
 		background: white;
+		border-color: white;
 		transform: scale(1.2);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	}
 
 	/* Navigation Arrows */
@@ -289,22 +309,27 @@ const heroSlides = [
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		background: rgba(255, 255, 255, 0.2);
+		background: rgba(255, 255, 255, 0.15);
 		color: white;
-		border: none;
-		width: 50px;
-		height: 50px;
+		border: 2px solid rgba(255, 255, 255, 0.2);
+		width: 56px;
+		height: 56px;
 		border-radius: 50%;
 		font-size: 1.5rem;
 		cursor: pointer;
-		transition: all 0.3s ease;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		z-index: 4;
 		backdrop-filter: blur(10px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.hero-arrow:hover {
-		background: rgba(255, 255, 255, 0.3);
+		background: rgba(255, 255, 255, 0.25);
+		border-color: rgba(255, 255, 255, 0.4);
 		transform: translateY(-50%) scale(1.1);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 	}
 
 	.hero-arrow.prev {
@@ -316,23 +341,73 @@ const heroSlides = [
 	}
 
 	@media (max-width: 768px) {
+		.slide-content {
+			padding: 0 20px;
+		}
+
 		.hero-title {
-			font-size: 2.5rem;
+			font-size: clamp(2rem, 8vw, 2.5rem);
+			margin-bottom: 1rem;
 		}
 
 		.hero-subtitle {
-			font-size: 1.1rem;
+			font-size: clamp(1rem, 4vw, 1.2rem);
+			margin-bottom: 2rem;
 		}
 
 		.btn {
 			min-width: 160px;
-			padding: 12px 25px;
+			padding: 14px 28px;
+			font-size: 14px;
+		}
+
+		.hero-buttons {
+			gap: 0.75rem;
 		}
 
 		.hero-arrow {
-			width: 40px;
-			height: 40px;
+			width: 48px;
+			height: 48px;
 			font-size: 1.2rem;
+		}
+
+		.hero-arrow.prev {
+			left: 20px;
+		}
+
+		.hero-arrow.next {
+			right: 20px;
+		}
+
+		.hero-dots {
+			bottom: 30px;
+			gap: 10px;
+		}
+
+		.dot {
+			width: 12px;
+			height: 12px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.hero-title {
+			margin-bottom: 0.75rem;
+		}
+
+		.hero-subtitle {
+			margin-bottom: 1.5rem;
+		}
+
+		.btn {
+			min-width: 140px;
+			padding: 12px 24px;
+		}
+
+		.hero-arrow {
+			width: 44px;
+			height: 44px;
+			font-size: 1.1rem;
 		}
 
 		.hero-arrow.prev {
@@ -344,7 +419,7 @@ const heroSlides = [
 		}
 
 		.hero-dots {
-			bottom: 20px;
+			bottom: 25px;
 		}
 	}
 </style>

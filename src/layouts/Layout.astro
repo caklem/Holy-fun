@@ -1,6 +1,7 @@
 ---
 import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
 import '../styles/global.css';
+import faviconSrc from '../assets/favicon.png';
 ---
 
 <!doctype html>
@@ -8,9 +9,12 @@ import '../styles/global.css';
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- Astro optimized favicon -->
+		<link rel="icon" type="image/png" href={faviconSrc.src} />
+		<link rel="apple-touch-icon" href={faviconSrc.src} />
+		<meta name="theme-color" content="#2BB8E6" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Malang HolyFun - Travel Wisata Malang Terpercaya</title>
+		<title>🚀 Malang HolyFun - Travel Wisata Malang Terpercaya</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">

@@ -14,7 +14,7 @@
 					<div class="info-icon">📍</div>
 					<div class="info-text">
 						<h4>Alamat</h4>
-						<p>Malang, Jawa Timur, Indonesia</p>
+						<p>De Green Pavilion C23 lt. 2, Tunggulwulung, Lowokwaru, Malang</p>
 					</div>
 				</div>
 				<div class="info-item">
@@ -24,19 +24,47 @@
 						<p>Admin 1: +62 859-3664-5589<br>Admin 2: +62 896-5375-0433</p>
 					</div>
 				</div>
-				<div class="info-item">
+				<!-- <div class="info-item">
 					<div class="info-icon">✉️</div>
 					<div class="info-text">
 						<h4>Email</h4>
 						<p>info@malanghilyfun.com</p>
 					</div>
-				</div>
+				</div> -->
 				<div class="info-item">
 					<div class="info-icon">⏰</div>
 					<div class="info-text">
 						<h4>Jam Operasional</h4>
 						<p>Senin - Minggu: 08:00 - 20:00<br>Siap melayani kapan saja</p>
 					</div>
+				</div>
+			</div>
+			<div class="map-container">
+				<div class="map-header">
+					<h3>Lokasi Kami</h3>
+					<p>Temukan kantor kami di De Green Pavilion, Malang</p>
+				</div>
+				<div class="map-wrapper">
+					<iframe 
+						src="https://maps.google.com/maps?q=De+Green+Pavilion+C23+lt.+2,+Tunggulwulung,+Lowokwaru,+Malang&t=&z=16&ie=UTF8&iwloc=&output=embed"
+						width="100%" 
+						height="400" 
+						style="border:0;" 
+						allowfullscreen="" 
+						loading="lazy" 
+						referrerpolicy="no-referrer-when-downgrade"
+						title="Lokasi Malang HolyFun di De Green Pavilion C23 lt. 2, Tunggulwulung, Lowokwaru, Malang">
+					</iframe>
+				</div>
+				<div class="map-links">
+					<a href="https://www.google.com/maps/search/De+Green+Pavilion+C23+lt.+2,+Tunggulwulung,+Lowokwaru,+Malang" target="_blank" rel="noopener noreferrer" class="map-link">
+						<span class="link-icon">🗺️</span>
+						Buka di Google Maps
+					</a>
+					<a href="https://www.google.com/maps/dir//De+Green+Pavilion+C23+lt.+2,+Tunggulwulung,+Lowokwaru,+Malang" target="_blank" rel="noopener noreferrer" class="map-link">
+						<span class="link-icon">🧭</span>
+						Petunjuk Arah
+					</a>
 				</div>
 			</div>
 			<!-- <div class="contact-form">
@@ -105,6 +133,78 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 60px;
 		align-items: start;
+	}
+
+	.map-container {
+		background: #f8f9fa;
+		border-radius: 20px;
+		padding: 30px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	}
+
+	.map-header {
+		text-align: center;
+		margin-bottom: 25px;
+	}
+
+	.map-header h3 {
+		color: #2c3e50;
+		font-size: 1.5rem;
+		margin-bottom: 8px;
+		font-weight: 600;
+	}
+
+	.map-header p {
+		color: #666;
+		margin: 0;
+		font-size: 1rem;
+	}
+
+	.map-wrapper {
+		border-radius: 15px;
+		overflow: hidden;
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+		margin-bottom: 20px;
+	}
+
+	.map-wrapper iframe {
+		display: block;
+		border-radius: 15px;
+	}
+
+	.map-links {
+		display: flex;
+		gap: 15px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.map-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 12px 20px;
+		background: white;
+		color: #2c3e50;
+		text-decoration: none;
+		border-radius: 25px;
+		font-weight: 500;
+		font-size: 0.9rem;
+		transition: all 0.3s ease;
+		border: 2px solid #e9ecef;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+
+	.map-link:hover {
+		background: #667eea;
+		color: white;
+		border-color: #667eea;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+	}
+
+	.link-icon {
+		font-size: 1.1rem;
 	}
 
 	.info-item {
@@ -214,8 +314,25 @@
 			font-size: 2rem;
 		}
 		
-		.contact-form {
-			padding: 30px 20px;
+		.map-container {
+			padding: 20px;
+		}
+
+		.map-wrapper {
+			margin-bottom: 15px;
+		}
+
+		.map-wrapper iframe {
+			height: 300px;
+		}
+
+		.map-links {
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.map-link {
+			justify-content: center;
 		}
 		
 		.info-item {

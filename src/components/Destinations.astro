@@ -99,6 +99,34 @@ Mohon informasi lebih lanjut mengenai:
 4. Cara pembayaran
 
 Terima kasih! 🙏`
+	},
+	{
+		id: 4,
+		name: "Request Paket Custom",
+		basePrice: "Harga Fleksibel",
+		image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+		description: "Buat paket wisata sesuai keinginan Anda dengan destinasi dan fasilitas pilihan sendiri",
+		rating: 5.0,
+		duration: "Sesuai Request",
+		priceDetails: [
+			// { pax: "Custom", price: "Harga disesuaikan kebutuhan" }
+		],
+		extraInfo: "Konsultasi gratis untuk paket custom sesuai budget dan destinasi impian Anda",
+		waMessage: `Halo Malang HolyFun! 👋
+
+Saya ingin *REQUEST PAKET CUSTOM* untuk wisata di Malang
+
+📋 *Kebutuhan Saya:*
+• Destinasi yang ingin dikunjungi: [sebutkan destinasi]
+• Durasi perjalanan: [berapa hari]
+• Jumlah peserta: [berapa orang]
+• Budget yang tersedia: [kisaran budget]
+• Tanggal rencana perjalanan: [tanggal]
+
+📝 *Tambahan Permintaan:*
+• [Tuliskan permintaan khusus lainnya]
+
+Mohon dibuatkan paket custom sesuai kebutuhan saya. Terima kasih! 🙏`
 	}
 ];
 
@@ -128,23 +156,25 @@ function createWhatsAppURL(number: string, message: string) {
 						<h3>{dest.name}</h3>
 						<p>{dest.description}</p>
 						
-						<div class="price-selection-section">
-							<h4>Pilih Jumlah Peserta:</h4>
-							<div class="pax-selector">
-								<select class="pax-dropdown" data-destination-id={dest.id}>
-									<option value="">-- Pilih Jumlah Pax --</option>
-									{dest.priceDetails.map((price, index) => (
-										<option value={index} data-pax={price.pax} data-price={price.price}>
-											{price.pax} - {price.price}
-										</option>
-									))}
-								</select>
+						{dest.id !== 4 && (
+							<div class="price-selection-section">
+								<h4>Pilih Jumlah Peserta:</h4>
+								<div class="pax-selector">
+									<select class="pax-dropdown" data-destination-id={dest.id}>
+										<option value="">-- Pilih Jumlah Pax --</option>
+										{dest.priceDetails.map((price, index) => (
+											<option value={index} data-pax={price.pax} data-price={price.price}>
+												{price.pax} - {price.price}
+											</option>
+										))}
+									</select>
+								</div>
+								<div class="selected-price-display">
+									<span class="price-label">Harga Terpilih:</span>
+									<span class="selected-price" data-destination-id={dest.id}>Pilih jumlah pax</span>
+								</div>
 							</div>
-							<div class="selected-price-display">
-								<span class="price-label">Harga Terpilih:</span>
-								<span class="selected-price" data-destination-id={dest.id}>Pilih jumlah pax</span>
-							</div>
-						</div>
+						)}
 						
 						<div class="extra-info">
 							<p>{dest.extraInfo}</p>
@@ -163,13 +193,13 @@ function createWhatsAppURL(number: string, message: string) {
 							<div class="wa-admin-selection">
 								<p class="wa-selection-text">Pilih Admin untuk Pemesanan:</p>
 								<div class="wa-admin-buttons">
-									<button class="btn-book admin-1" data-destination-id={dest.id} data-admin="1" disabled>
+									<button class="btn-book admin-1" data-destination-id={dest.id} data-admin="1" disabled={dest.id !== 4}>
 										<svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 											<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
 										</svg>
 										👤 Admin 1
 									</button>
-									<button class="btn-book admin-2" data-destination-id={dest.id} data-admin="2" disabled>
+									<button class="btn-book admin-2" data-destination-id={dest.id} data-admin="2" disabled={dest.id !== 4}>
 										<svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 											<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
 										</svg>
@@ -187,9 +217,6 @@ function createWhatsAppURL(number: string, message: string) {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-	// Ambil semua dropdown pax selector
-	const paxDropdowns = document.querySelectorAll('.pax-dropdown');
-	
 	// Admin WhatsApp numbers
 	const admin1Number = '6285936645589';
 	const admin2Number = '6289653750433';
@@ -212,7 +239,10 @@ Saya tertarik untuk booking paket wisata:
 Mohon informasi lebih lanjut untuk proses booking. Terima kasih! 🙏`;
 	}
 	
-	// Event listener untuk setiap dropdown
+	// Ambil semua dropdown pax selector (hanya untuk kartu reguler)
+	const paxDropdowns = document.querySelectorAll('.pax-dropdown');
+	
+	// Event listener untuk setiap dropdown (kartu reguler)
 	paxDropdowns.forEach(dropdown => {
 		dropdown.addEventListener('change', function() {
 			const destinationId = this.dataset.destinationId;
@@ -225,7 +255,7 @@ Mohon informasi lebih lanjut untuk proses booking. Terima kasih! 🙏`;
 			const adminButtons = document.querySelectorAll(`button[data-destination-id="${destinationId}"]`);
 			
 			if (selectedOption.value === '') {
-				// Jika tidak ada yang dipilih
+				// Jika tidak ada yang dipilih untuk paket reguler
 				priceDisplay.textContent = 'Pilih jumlah pax';
 				priceDisplay.classList.add('empty');
 				
@@ -263,6 +293,36 @@ Mohon informasi lebih lanjut untuk proses booking. Terima kasih! 🙏`;
 				});
 			}
 		});
+	});
+	
+	// Setup khusus untuk kartu Request (ID = 4) - langsung aktif
+	const requestButtons = document.querySelectorAll(`button[data-destination-id="4"]`);
+	requestButtons.forEach(button => {
+		const adminType = button.dataset.admin;
+		const adminNumber = adminType === '1' ? admin1Number : admin2Number;
+		
+		// Pesan untuk paket custom request
+		const customMessage = `Halo Malang HolyFun! 👋
+
+Saya ingin *REQUEST PAKET CUSTOM* untuk wisata di Malang
+
+📋 *Kebutuhan Saya:*
+• Destinasi yang ingin dikunjungi: [sebutkan destinasi]
+• Durasi perjalanan: [berapa hari]
+• Jumlah peserta: [berapa orang]
+• Budget yang tersedia: [kisaran budget]
+• Tanggal rencana perjalanan: [tanggal]
+
+📝 *Tambahan Permintaan:*
+• [Tuliskan permintaan khusus lainnya]
+
+Mohon dibuatkan paket custom sesuai kebutuhan saya. Terima kasih! 🙏`;
+		
+		// Setup click handler untuk Request buttons
+		const whatsappURL = createWhatsAppURL(adminNumber, customMessage);
+		button.onclick = function() {
+			window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+		};
 	});
 });
 </script>
@@ -316,6 +376,100 @@ Mohon informasi lebih lanjut untuk proses booking. Terima kasih! 🙏`;
 	.destination-card:hover {
 		transform: translateY(-10px);
 		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+	}
+
+	/* Styling khusus untuk kartu Request Custom */
+	.destination-card:nth-child(4) {
+		background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+		color: #333;
+		border: 2px solid #FFD700;
+		box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+	}
+
+	.destination-card:nth-child(4):hover {
+		box-shadow: 0 25px 50px rgba(255, 215, 0, 0.4);
+		transform: translateY(-15px);
+	}
+
+	.destination-card:nth-child(4) .card-content h3 {
+		color: #1a1a1a;
+		text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+		font-weight: 800;
+	}
+
+	.destination-card:nth-child(4) .card-content p {
+		color: #2c2c2c;
+		font-weight: 600;
+	}
+
+	.destination-card:nth-child(4) .price-selection-section {
+		background: rgba(255, 255, 255, 0.9);
+		border: 1px solid rgba(255, 215, 0, 0.5);
+	}
+
+	.destination-card:nth-child(4) .price-selection-section h4 {
+		color: #333;
+	}
+
+	.destination-card:nth-child(4) .extra-info {
+		background: rgba(255, 255, 255, 0.9);
+		border: 1px solid rgba(255, 215, 0, 0.6);
+	}
+
+	.destination-card:nth-child(4) .extra-info p {
+		color: #1a1a1a;
+		font-weight: 700;
+	}
+
+	.destination-card:nth-child(4) .base-price {
+		color: #8B4513;
+		text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+		font-weight: 800;
+	}
+
+	.destination-card:nth-child(4) .selected-price-display {
+		background: rgba(255, 255, 255, 0.9);
+		border: 1px solid rgba(255, 215, 0, 0.5);
+	}
+
+	.destination-card:nth-child(4) .price-label {
+		color: #333;
+	}
+
+	.destination-card:nth-child(4) .selected-price {
+		color: #8B4513;
+		text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+	}
+
+	.destination-card:nth-child(4) .wa-booking-section {
+		background: rgba(255, 255, 255, 0.2);
+		border: 1px solid rgba(255, 215, 0, 0.4);
+	}
+
+	.destination-card:nth-child(4) .wa-selection-text {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.destination-card:nth-child(4) .btn-book {
+		background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+		color: #fff;
+		font-weight: 700;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+		border: 2px solid rgba(255, 215, 0, 0.3);
+	}
+
+	.destination-card:nth-child(4) .btn-book:hover:not(:disabled) {
+		background: linear-gradient(135deg, #A0522D 0%, #CD853F 100%);
+		transform: translateY(-3px);
+		box-shadow: 0 12px 30px rgba(139, 69, 19, 0.5);
+		border-color: rgba(255, 215, 0, 0.6);
+	}
+
+	.destination-card:nth-child(4) .card-overlay {
+		background: rgba(139, 69, 19, 0.9);
+		color: #FFD700;
+		border: 1px solid rgba(255, 215, 0, 0.3);
 	}
 
 	.card-image {
